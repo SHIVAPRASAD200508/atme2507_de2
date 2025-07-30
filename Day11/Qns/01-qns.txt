@@ -66,6 +66,10 @@ db.depts.insertMany([
 🧹 Data Cleaning & Preprocessing
 1. Filter rows where the `salary` is missing.
 2. Fill the missing values in the `salary` column with the average salary.
+db.emps.aggregate([
+  {$match:{salary:{$ne:null}}}
+  {group:{_id:null,avg:'salary'}}}
+  ])
 3. Create new columns `join_year` and `join_month` from the `join_date` column.
 
 ---
